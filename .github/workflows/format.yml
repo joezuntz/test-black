@@ -20,5 +20,7 @@ jobs:
         run: |
           git config --global user.name 'Automatic formatter'
           git config --global user.email 'joezuntz@users.noreply.github.com'
-          git commit -am "Format code with black"
+          # commit only if there are no changes
+          git diff --quiet || git commit -am "Format code with black"
+          # okay if there are no changes
           git push
